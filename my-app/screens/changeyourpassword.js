@@ -19,12 +19,6 @@ const ConfirmPasswordScreen   = () => {
         alert("Passwords don't match. Please check your password.");
         return; 
   
-        setButtonColor('black');
-        setTimeout(() => {
-          setButtonColor('gray');
-          navigation.navigate('Login');
-        }, 10);
-  
       }else{
         navigation.navigate ('Login');
       }
@@ -39,17 +33,20 @@ const ConfirmPasswordScreen   = () => {
         <TextInput
           style={styles.textInput}
           placeholder="Username"
+          placeholderTextColor={'gray'}
           onChangeText={(text) => setUsername(text)}
         />
         <TextInput
           style={styles.textInput}
           placeholder="New Password"
+          placeholderTextColor={'gray'}
           secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Confirm New Password"
+          placeholderTextColor={'gray'}
           secureTextEntry={true}
           onChangeText={(text) => setConfirmPassword(text)}
         />
@@ -70,6 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'black'
   },
   inputContainer: {
     flexDirection: 'column',
@@ -81,6 +79,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: 'white'
   },
   textInput: {
     borderBottomWidth: 1,
@@ -88,6 +87,7 @@ const styles = StyleSheet.create({
     width: '80%',
     marginBottom: 10,
     padding: 8,
+    color: 'white'
   },
   heading: {
     marginBottom: 8,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   text: {
     marginBottom: 30,
-    color: '#4c504c7d',
+    color: 'white',
   },
   smallText: {
     fontSize: 12,

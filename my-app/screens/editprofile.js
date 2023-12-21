@@ -22,9 +22,6 @@ const DashboardScreen = () => {
     navigation.navigate('ScreenProfile');
   };
 
-
-
-
   return (
     <View style={styles.appContainer}>
       <StatusBar style="auto" />
@@ -81,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    //backgroundColor: 'black',
+    backgroundColor: 'black',
   },
   contentContainer: {
     flexGrow: 1,
@@ -93,6 +90,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     position: 'absolute',
     top: 0,
+    color:'white'
     //left: 20, // Adjust left positioning as needed
   },
   heading: {
@@ -119,13 +117,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: 'white'
   },
   infoP: {
     fontSize: 14,
     marginBottom: 15,
+    color: 'white'
   },
   buttonEditProfile: {
-    backgroundColor: '#C6C6D0',
+    backgroundColor: '#a9a9a9',
     padding: 10,
     borderRadius: 0,
     width: 150,
@@ -134,29 +134,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
 
-  buttonP: {
-    backgroundColor: '#9897A9',
-    padding: 10,
-    borderRadius: 0,
-    width: 250,
-    alignItems: 'center',
-    marginVertical: 10,
-  },
   buttonTextP: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  logoutButtonP: {
-    backgroundColor: '#9897A9',
-    padding: 10,
-    borderRadius: 0,
-    width: 250,
-    alignItems: 'center',
-    marginVertical: 10,
-    marginBottom: 10,
-  },
-  logoutButtonTextP: {
     color: 'white',
     fontWeight: 'bold',
     fontSize: 14,

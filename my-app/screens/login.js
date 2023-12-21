@@ -11,12 +11,6 @@ export default function App() {
 
   const navigation = useNavigation();
 
-  const handleLogin = () => {
-    setButtonColor('lightgreen');
-    setTimeout(() => {
-      setButtonColor('green');
-    }, 10);
-  };
 
   return (
     <View style={styles.appContainer}>
@@ -27,13 +21,15 @@ export default function App() {
         <Text style={[styles.title, styles.heading]}>LOGIN</Text>
         <Text style={styles.text}>Welcome to HydroApp</Text>
         <TextInput
-          style={[styles.textInput, { color: username ? 'black' : '#525151' }]}
+          style={[styles.textInput]}
           placeholder='Username'
+          placeholderTextColor={'gray'}
           onChangeText={(text) => setUsername(text)}
         />
         <TextInput
-          style={[styles.textInput, { color: password ? 'black' : '#525151', marginTop: 10 }]}
+          style={[styles.textInput]}
           placeholder='Password'
+          placeholderTextColor={'gray'}
           secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
         />
@@ -71,13 +67,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    //backgroundColor: 'black'
+    backgroundColor: 'black'
   },
   inputContainer: {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 300
+    width: 300,
   },
   signUpContainer: {
     flexDirection: 'row',
@@ -88,7 +84,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    //color: 'white'
+    color: 'white'
   },
   textInput: {
     borderBottomWidth: 1,
@@ -96,17 +92,19 @@ const styles = StyleSheet.create({
     width: '80%',
     marginBottom: 10,
     padding: 8,
+    color: 'white'
   },
   heading: {
     marginBottom: 8,
-    fontSize: 25
+    fontSize: 25,
   },
   text: {
     marginBottom:30,
-    color: '#4c504c7d'
+    color: 'lightgreen'
   },
   smallText: {
     fontSize: 12,
+    color: 'white'
   },
   linkGreen: {
     color: 'green',

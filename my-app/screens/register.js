@@ -18,17 +18,11 @@ const RegisterScreen = () => {
   const toLevels = () => {
     if (password !== confirmPassword) {
         
-      alert("Passwords don't match. Please check your password.");
+      confirm("Passwords don't match. Please check your password.");
       return; 
 
-      setButtonColor('green');
-      setTimeout(() => {
-        setButtonColor('gray');
-        navigation.navigate('Login');
-      }, 10);
-
     }else{
-      navigation.navigate ('ScreenLevels');
+      navigation.navigate ('Login');
     }
 
   };
@@ -45,32 +39,38 @@ const RegisterScreen = () => {
         <TextInput
           style={styles.textInput}
           placeholder="First Name"
+          placeholderTextColor={'gray'}
           onChangeText={(text) => setFirstName(text)}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Last Name"
+          placeholderTextColor={'gray'}
           onChangeText={(text) => setLastName(text)}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Email"
+          placeholderTextColor={'gray'}
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Username"
+          placeholderTextColor={'gray'}
           onChangeText={(text) => setUsername(text)}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Password"
+          placeholderTextColor={'gray'}
           secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Confirm Password"
+          placeholderTextColor={'gray'}
           secureTextEntry={true}
           onChangeText={(text) => setConfirmPassword(text)}
         />
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'black'
   },
   inputContainer: {
     flexDirection: 'column',
@@ -112,6 +113,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: 'white'
   },
   textInput: {
     borderBottomWidth: 1,
@@ -119,6 +121,7 @@ const styles = StyleSheet.create({
     width: '80%',
     marginBottom: 10,
     padding: 8,
+    color: 'white'
   },
   heading: {
     marginBottom: 8,
@@ -126,10 +129,11 @@ const styles = StyleSheet.create({
   },
   text: {
     marginBottom: 30,
-    color: '#4c504c7d',
+    color: 'white',
   },
   smallText: {
     fontSize: 12,
+    color: 'white'
   },
   linkGreen: {
     color: 'green',

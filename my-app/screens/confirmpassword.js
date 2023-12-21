@@ -24,6 +24,7 @@ const ConfirmPasswordScreen   = () => {
         <TextInput
             style={styles.textInput}
             placeholder="OTP"
+            placeholderTextColor={'gray'}
             onChangeText={(text) => setOTP(text)}
         />
         <TouchableOpacity onPress={confirmpassword}>
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'black'
   },
   inputContainer: {
     flexDirection: 'column',
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: 'white'
   },
   textInput: {
     borderBottomWidth: 1,
@@ -60,6 +63,7 @@ const styles = StyleSheet.create({
     width: '80%',
     marginBottom: 10,
     padding: 8,
+    color: 'white'
   },
   heading: {
     marginBottom: 8,
@@ -67,7 +71,7 @@ const styles = StyleSheet.create({
   },
   text: {
     marginBottom: 30,
-    color: '#4c504c7d',
+    color: 'white',
   },
   smallText: {
     fontSize: 12,

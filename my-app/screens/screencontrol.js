@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
 
 // Assume you have some icon images in the assets folder
 import levelsIcon from '../assets/levelsIcon.png';
@@ -29,33 +28,160 @@ const DashboardScreen = () => {
     navigation.navigate('ScreenProfile');
   };
 
-  const handleEditProfile = () => {
-    // Navigate to the edit profile screen
-    // navigation.navigate('EditProfile');
+  // State to track the active button
+  const [activeButton, setActiveButton] = useState(null);
+
+  // Function to handle button toggle
+  const handleButtonToggle = (buttonNumber) => {
+    // If the clicked button is already active, turn it off
+    if (activeButton === buttonNumber) {
+      setActiveButton(null);
+    } else {
+      // If there is an active button, do nothing
+      if (activeButton !== null) {
+        return;
+      }
+      // Turn on the clicked button
+      setActiveButton(buttonNumber);
+    }
   };
 
-  const handleSettings = () => {
-    // Navigate to the settings screen
-    // navigation.navigate('Settings');
-  };
-
-  const handleLogout = () => {
-    // Implement logout logic here
-    // For example, clear user data and navigate to the login screen
-    navigation.navigate('Login');
+  // Function to determine if a button is active
+  const isButtonActive = (buttonNumber) => {
+    return activeButton === buttonNumber;
   };
 
   return (
     <View style={styles.appContainer}>
       <StatusBar style="auto" />
 
-      {/* Profile Title */}
+      {/* Control Title */}
       <Text style={[styles.title, styles.heading]}>CONTROL</Text>
 
       {/* User Profile Information */}
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.profileInfo}>
+          {/* Grouped Buttons with Title */}
+          <View style={styles.buttonSection}>
+            <Text style={styles.sectionTitle}>VALVES</Text>
 
+            {/* Label and Toggle Button 1 */}
+            <View style={styles.labelAndButtonContainer}>
+              <Text style={styles.labelText}>VALVE 1A </Text>
+              <TouchableOpacity
+                onPress={() => handleButtonToggle(1)}
+                style={[
+                  styles.buttonP,
+                  isButtonActive(1) ? styles.buttonOn : styles.buttonOff,
+                ]}
+              >
+                <Text style={styles.buttonTextP}>
+                  {isButtonActive(1) ? 'ON' : 'OFF'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Label and Toggle Button 2 */}
+            <View style={styles.labelAndButtonContainer}>
+              <Text style={styles.labelText}>VALVE 1B </Text>
+              <TouchableOpacity
+                onPress={() => handleButtonToggle(2)}
+                style={[
+                  styles.buttonP,
+                  isButtonActive(2) ? styles.buttonOn : styles.buttonOff,
+                ]}
+              >
+                <Text style={styles.buttonTextP}>
+                  {isButtonActive(2) ? 'ON' : 'OFF'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Label and Toggle Button 3 */}
+            <View style={styles.labelAndButtonContainer}>
+              <Text style={styles.labelText}>VALVE 2A </Text>
+              <TouchableOpacity
+                onPress={() => handleButtonToggle(3)}
+                style={[
+                  styles.buttonP,
+                  isButtonActive(3) ? styles.buttonOn : styles.buttonOff,
+                ]}
+              >
+                <Text style={styles.buttonTextP}>
+                  {isButtonActive(3) ? 'ON' : 'OFF'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Label and Toggle Button 4 */}
+            <View style={styles.labelAndButtonContainer}>
+              <Text style={styles.labelText}>VALVE 2B </Text>
+              <TouchableOpacity
+                onPress={() => handleButtonToggle(4)}
+                style={[
+                  styles.buttonP,
+                  isButtonActive(4) ? styles.buttonOn : styles.buttonOff,
+                ]}
+              >
+                <Text style={styles.buttonTextP}>
+                  {isButtonActive(4) ? 'ON' : 'OFF'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          {/* Grouped Buttons with Title */}
+          <View style={styles.buttonSection}>
+            <Text style={styles.sectionTitle}>PERISTALTIC PUMPS</Text>
+
+            {/* Label and Toggle Button pH UP */}
+            <View style={styles.labelAndButtonContainer}>
+              <Text style={styles.labelText}>pH UP      </Text>
+              <TouchableOpacity
+                onPress={() => handleButtonToggle(5)}
+                style={[
+                  styles.buttonP,
+                  isButtonActive(5) ? styles.buttonOn : styles.buttonOff,
+                ]}
+              >
+                <Text style={styles.buttonTextP}>
+                  {isButtonActive(5) ? 'ON' : 'OFF'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Label and Toggle Button pH DOWN */}
+            <View style={styles.labelAndButtonContainer}>
+              <Text style={styles.labelText}>pH DOWN</Text>
+              <TouchableOpacity
+                onPress={() => handleButtonToggle(6)}
+                style={[
+                  styles.buttonP,
+                  isButtonActive(6) ? styles.buttonOn : styles.buttonOff,
+                ]}
+              >
+                <Text style={styles.buttonTextP}>
+                  {isButtonActive(6) ? 'ON' : 'OFF'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Label and Toggle Button Nutrients */}
+            <View style={styles.labelAndButtonContainer}>
+              <Text style={styles.labelText}>Nutrients</Text>
+              <TouchableOpacity
+                onPress={() => handleButtonToggle(7)}
+                style={[
+                  styles.buttonP,
+                  isButtonActive(7) ? styles.buttonOn : styles.buttonOff,
+                ]}
+              >
+                <Text style={styles.buttonTextP}>
+                  {isButtonActive(7) ? 'ON' : 'OFF'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </ScrollView>
 
@@ -90,6 +216,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'black',
   },
   contentContainer: {
     flexGrow: 1,
@@ -101,6 +228,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     position: 'absolute',
     top: 0,
+    color: 'white',
     //left: 20, // Adjust left positioning as needed
   },
   heading: {
@@ -113,12 +241,12 @@ const styles = StyleSheet.create({
   },
 
   profilePicture: {
-    width: 80,  // Adjust the size of the profile picture as needed
+    width: 80, // Adjust the size of the profile picture as needed
     height: 80,
-    borderRadius: 40,  // Half of the width or height to make it circular
+    borderRadius: 40, // Half of the width or height to make it circular
     marginBottom: 10,
   },
-  
+
   profileInfo: {
     alignItems: 'center',
     marginBottom: 20,
@@ -135,7 +263,7 @@ const styles = StyleSheet.create({
   buttonP: {
     backgroundColor: 'green',
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 30,
     width: 120,
     alignItems: 'center',
     marginVertical: 10,
@@ -187,6 +315,36 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: 'bold',
     color: 'black',
+  },
+
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: 'white',
+  },
+
+  labelAndButtonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  labelText: {
+    fontSize: 16,
+    fontWeight: 'regular',
+    marginRight: 10,
+    color: 'white',
+  },
+
+  buttonSection: {
+    marginBottom: 20,
+  },
+
+  buttonOn: {
+    backgroundColor: 'lightgreen',
+  },
+  buttonOff: {
+    backgroundColor: 'gray',
   },
 });
 

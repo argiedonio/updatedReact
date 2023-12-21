@@ -29,35 +29,51 @@ const DashboardScreen = () => {
     navigation.navigate('ScreenProfile');
   };
 
-  const handleEditProfile = () => {
-    // Navigate to the edit profile screen
-    // navigation.navigate('EditProfile');
-  };
+  const beforepH = 7;
+  const afterpH = 6.3;
 
-  const handleSettings = () => {
-    // Navigate to the settings screen
-    // navigation.navigate('Settings');
-  };
+  const beforeNutrients = 400;
+  const afterNutrients = 750;
 
-  const handleLogout = () => {
-    // Implement logout logic here
-    // For example, clear user data and navigate to the login screen
-    navigation.navigate('Login');
-  };
+  const notifications = [
+    'Notification 1: Something happened',
+    'Notification 2: Another event occurred',
+    'Notification 3: Yet another notification',
+  ];
 
   return (
     <View style={styles.appContainer}>
       <StatusBar style="auto" />
 
-      {/* Profile Title */}
       <Text style={[styles.title, styles.heading]}>UPDATES</Text>
 
-      {/* User Profile Information */}
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-        <View style={styles.profileInfo}>
-
-          
+      {/* Rectangles in the same row with space between them */}
+      <View style={styles.rowContainer}>
+        {/* Rectangle 1 */}
+        <View style={styles.rectangle1}>
+          {/* Your content for Rectangle 1 goes here */}
+          <Text style={styles.rectangleTextBefore}>Before: {(beforepH)}pH</Text>
+          <Text style={styles.rectangleTextAfter}>After: {(afterpH)}pH</Text>
         </View>
+
+        {/* Space between rectangles */}
+        <View style={{ width: 10 }} />
+
+        {/* Rectangle 2 */}
+        <View style={styles.rectangle2}>
+          {/* Your content for Rectangle 2 goes here */}
+          <Text style={styles.rectangleTextBefore}>Before: {(beforeNutrients)}ppm</Text>
+          <Text style={styles.rectangleTextAfter}>After: {(afterNutrients)}ppm</Text>
+        </View>
+      </View>
+
+      {/* List of notifications */}
+      <ScrollView style={styles.scrollView}>
+        {notifications.map((notification, index) => (
+          <Text key={index} style={styles.notificationItem}>
+            {notification}
+          </Text>
+        ))}
       </ScrollView>
 
       {/* Bottom Navigation Inside appContainer */}
@@ -91,17 +107,71 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:'black'
   },
   contentContainer: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
+
+  rowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 100, // Adjust as needed
+  },
+
+  rectangle1: {
+    width: 180, // Adjust the width of the rectangles as needed
+    height: 150, // Adjust the height of the rectangles as needed
+    backgroundColor: 'green', // Adjust the color of the rectangles as needed
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
+
+  rectangleTextBefore: {
+    color: 'white', // Set the text color as needed
+    marginLeft: -50, // Adjust the left margin as needed
+    fontSize: 17,
+  },
+
+  rectangleTextAfter: {
+    color: 'white', // Set the text color as needed
+    marginLeft: -10, // Adjust the left margin as needed
+    fontSize: 25,
+    fontWeight: 'bold'
+  },
+
+
+  rectangle2: {
+    width: 180, // Adjust the width of the rectangles as needed
+    height: 150, // Adjust the height of the rectangles as needed
+    backgroundColor: 'gold', // Adjust the color of the rectangles as needed
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
+
+  scrollView: {
+    flex: 1,
+    marginBottom: 0,
+  },
+
+  notificationItem: {
+    fontSize: 16,
+    color: 'white',
+    marginVertical: 8,
+    marginLeft: 16,
+  },
+
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     position: 'absolute',
     top: 0,
+    color: 'white'
     //left: 20, // Adjust left positioning as needed
   },
   heading: {
@@ -189,6 +259,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
   },
+
+
 });
 
 export default DashboardScreen;
